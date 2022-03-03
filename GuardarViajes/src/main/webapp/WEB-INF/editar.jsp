@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Registro libro</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-	</head>
 	<body>
+		<header>
+			<div class="navbar navbar-dark bg-dark box-shadow">
+				<div class="container d-flex justify-content-between">
+					<a class="btn btn-secondary " href="/gastos">Volver</a>
+				</div>
+			</div>
+		</header>
 		<main role="main">
 			<div class="container mt-4 p-3">
-				<h1>Registro</h1>
-				<form:form method="POST" action ="/gastos/agregando" modelAttribute="gasto">
+				<h1>Editar</h1>
+				<form:form method="POST" action ="/gastos/${gasto.getId()}" modelAttribute="gasto">
+				<input type="hidden" name="_method" value="put">
 					<div class="form-group mb-2">
 						<form:label class="form-label" path="nombre" for="nombre">
 							Nombre:
@@ -48,7 +51,7 @@
 					</div>
 					
 					<button class="btn btn-primary" type="submit">
-						Registrar gasto
+						Actualizar
 					</button>
 				</form:form>
 			</div>

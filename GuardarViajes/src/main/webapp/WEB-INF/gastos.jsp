@@ -20,13 +20,18 @@
 				<th>Tienda</th>
 				<th>Precio</th>
 				<th>Descripcion</th>
+				<th>Acciones</th>
 			</tr>
 			<c:forEach var="gasto" items="${listaGastos}">
 				<tr>
-					<td><c:out value="${gasto.getNombre()}"/></td>
+					
+					<td><a class="btn btn-primary" href="/gastos/${gasto.getId()}"><c:out value="${gasto.getNombre()}"/></td>
 					<td><c:out value="${gasto.getTienda()}"/></td>
 					<td><c:out value="${gasto.getMonto()}"/></td>
 					<td><c:out value="${gasto.getDescripcion()}"/></td>
+					<td><a class="btn btn-primary" href="/gastos/${gasto.getId()}/editar">Editar</a></td>
+					<td><a class="btn btn-primary" href="/gastos/${gasto.getId()}/eliminar">Eliminar</a></td>
+					
 				</tr>
 			</c:forEach>
 		</table>

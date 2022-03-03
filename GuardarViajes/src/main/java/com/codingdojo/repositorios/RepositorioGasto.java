@@ -22,4 +22,7 @@ public interface RepositorioGasto extends CrudRepository<Gasto, Long>{
 		//DELETE FROM usuarios WHERE nombre_usuarios = nombreUsuario
 		@Transactional
 		Long deleteById(long id);
+		
+		@Transactional
+		Long findById(Integer id);
 }
